@@ -31,7 +31,7 @@ var cleanpool = require("./cleanpool");
 
 
 
-mongoose.connect("mongodb://localhost/project", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect("mongodb+srv://egemencelikyurek:FryzfoA1oKTaDi8l@cluster0.lpykw.azure.mongodb.net/<dbname>?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 app.use(eSession({
     secret: "cok cok gizli",
     resave: false,
