@@ -850,6 +850,7 @@ function isAdmin(req, res, next) {
         res.redirect("/login");
     }
 }
-const server = app.listen(3000, function () {
-    console.log("Server has started");
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Server Has Started!");
 });
