@@ -1,0 +1,45 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing">
+    <h5 style="margin-bottom: 75px;">Your usable money is: <%= currentUser.money.toFixed(0) %></h5>
+    
+
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-6 col-12">
+            <h4 style="text-align: center;">DEPOSIT MONEY</h4>
+            <form action="/bank/deposit?_method=PUT" method="POST">
+                <label>Amount of money you want to deposit in saving account (by interest of % <%= (currentClass.interestRate*100).toFixed(2) %>)</label>
+                <div class="form-group">
+                    <input class="removearrow" type="number" min="0" max="<%= currentUser.money %>" class="form-control" name="deposit" style="width: 100%;">
+                </div>
+                    <button class="btn btn-success btn-block" style="width: 120px; margin-right: auto; margin-left: auto;">DEPOSIT</button>   
+            </form>     
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-6 col-12">
+            <h4 style="text-align: center;">WITHDRAW MONEY </h4>
+            <form action="/bank/withdraw?_method=PUT" method="POST">
+                <label>Amount of money you want to withdraw from your bank account</label>
+                <div class="form-group">
+                    <input class="removearrow" type="number" min="0" max="<%= currentUser.accountBalance %>" class="form-control" name="withdraw" style="width: 100%;" >
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block" style="width: 120px; margin-right: auto; margin-left: auto;">WITHDRAW</button>  
+                </div>
+            </form>    
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12" style="text-align: center; margin: 0 auto">
+            <h4>Account Balance: <%= currentUser.accountBalance %></h4>
+            <img src="images/safe.png" alt="Safe" width="120px" height="120px">
+        </div>
+        
+        
+    </div>
+    
+    <hr class="style">
+  
+</div>
+
+
+
+
+<%- include("../partials/footer") %>

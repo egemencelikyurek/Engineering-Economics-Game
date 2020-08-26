@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Username</th>
+            <th scope="col">Money</th>
+            <th scope="col"># of Projects</th>
+            <th scope="col"># of Loans</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i<users.length; i++) { %>
+          <tr> 
+            <% if(i == 0 || i==1 || i==2){ %>
+              <th scope="row" style="color:green;"><%= i+1 %></th>
+            <% }else{ %>
+              <th scope="row"><%= i+1 %></th>
+            <% } %>
+            <td><%= users[i].username %></td>
+            <td><%= (users[i].money + users[i].accountBalance).toFixed(0) %></td>
+            <td><%= users[i].deals.length %></td>
+            <td><%= users[i].loans.length %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+</div>
+
+
+<%- include("../partials/footer") %>

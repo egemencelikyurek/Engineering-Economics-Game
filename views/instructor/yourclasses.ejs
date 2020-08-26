@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing">
+    <div class="row">
+        <% for(var i = foundClasses.length - 1; i>=0 ; i--){ %>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12 cards">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Class Name: <%= foundClasses[i].name %></h5>
+                <p>Class ID: <%= foundClasses[i].idNumber %></p>
+                <p>Number of students enrolled: <%= foundClasses[i].users.length %></p>
+                <p>Create Date: <%= moment(foundClasses[i].createDate).format("MMMM Do YYYY") %></p>
+                <a class="btn btn-primary" href="/class/<%= foundClasses[i]._id %>">Details</a>
+              </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+
+<%- include("../partials/footer") %>

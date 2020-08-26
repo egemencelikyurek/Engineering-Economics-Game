@@ -1,0 +1,64 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing">
+  <h4 class="title">Gain Profit From Investments</h4>
+    <div class="row">
+      <% if(user.deals.length == 0){ %>
+        <h5 style="margin: 0 auto; text-align: center;">Nothing is added yet</h5>
+      <% } %>
+        <% for(var i=user.deals.length-1; i>=0; i--){ %>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= user.deals[i].projectname %></h5>
+                  <p>First Cost: <%= user.deals[i].initialcost %></p>
+                  <p>Weekly Income: <%= user.deals[i].weeklyincome %></p>
+                  <p>Weekly Cost: <%= user.deals[i].weeklycost %></p>
+                  <p>Salvage Value: <%= user.deals[i].salvage %></p>
+                  <p>Lifetime: <%= user.deals[i].lifetime %></p>
+                </div>
+              </div>
+            </div>
+        <% } %>
+    </div>
+    <h4 class="title">Cost Only Investments</h4>
+    <div class="row">
+      <% if(user.costonly.length == 0){ %>
+        <h5 style="margin: 0 auto; text-align: center;">Nothing is added yet</h5>
+      <% } %>
+      <% for(var i=user.costonly.length-1; i>=0; i--){ %>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= user.costonly[i].projectname %></h5>
+                <p>First Cost: <%= user.costonly[i].initialcost %></p>
+                <p>Weekly Cost: <%= user.costonly[i].weeklycost %></p>
+                <p>Maintenance cost once in each 2 week: <%= user.costonly[i].maintenancecost %></p>
+                <p>Salvage Value: <%= user.costonly[i].salvage %></p>
+                <p>Lifetime: <%= user.costonly[i].lifetime %></p>
+              </div>
+            </div>
+          </div>   
+      <% } %>
+  </div>
+  <h4 class="title">Your Assets</h4>
+  <div class="row">
+    <% for(var i=user.assets.length-1; i>=0; i--){ %>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= user.assets[i].projectname %></h5>
+            <p>First Cost: <%= user.assets[i].initialcost %></p>
+            <p>Weekly Income: <%= user.assets[i].weeklygain %></p>
+            <p>Maintenance cost once in each 2 week: <%= user.assets[i].maintenancecost %></p>
+            <p>Lifetime: <%= user.assets[i].lifetime %></p>
+            <p>Salvage Value: <%= user.assets[i].salvage %></p>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+  
+</div>
+
+<%- include("../partials/footer") %>

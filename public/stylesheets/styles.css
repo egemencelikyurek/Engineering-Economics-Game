@@ -1,0 +1,71 @@
+.register-photo {
+  background: white;
+  padding: 80px 0;
+}
+.spacing{
+  margin-top: 25px;
+}
+.cards{
+  margin-bottom: 15px;
+}
+.bank{
+  margin-left: 5rem;
+  text-align: center;
+}
+hr.style {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.removearrow::-webkit-inner-spin-button, 
+.removearrow::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+    -webkit-appearance: none;
+}
+#tablo{
+  display: none;
+}
+#inttt{
+  background-color: transparent;
+  color: white;
+  border: 0;
+  outline: transparent;
+}
+#inttt :focus{
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,1);
+}
+
+.blue:hover{
+  background: rgb(92, 162, 241);
+  transition: 0.5s;
+  margin-top: 15px;
+  border: 0.3px solid gray;
+}
+.aktif{
+  background: rgb(89, 248, 89);
+}
+.aktif:disabled{
+  color: rgba(25,25,25,1);
+}
+.title{
+  text-align: center; 
+  background-color: rgba(140, 186, 247, 0.75); 
+  padding: 10px 10px 10px 10px; 
+  border-radius: 0.75em; 
+  margin-bottom: 20px;
+  margin-top: 25px;
+}
+.icerik{
+  margin: 40px auto 40px auto; 
+  text-align: center;
+}
+.sag {
+  position: absolute;
+  margin-right: 20px;
+  right: 0px;
+  padding: 0px;
+}

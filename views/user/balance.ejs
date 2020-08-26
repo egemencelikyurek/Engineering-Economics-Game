@@ -1,0 +1,116 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing">
+    <% if(currentClass.currentWeek < 2 ){ %>
+        <h4 style="text-align: center;">This page will be available after Week 2</h4>
+    <% }else{ %>
+    <div class="row">
+        <div class="col-3">
+            <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <% user.reports.forEach(function(report){ %>
+                    <% if(report.week == currentClass.currentWeek-1){ %>
+                        <a class="nav-link active" id="v-pills-week<%= report.week %>-tab" data-toggle="pill" href="#v-pills-week<%= report.week %>"
+                            role="tab" aria-controls="v-pills-week<%= report.week %>" aria-selected="true">Week <%= report.week %></a>
+                    <% }else{ %>
+                        <a class="nav-link" id="v-pills-week<%= report.week %>-tab" data-toggle="pill" href="#v-pills-week<%= report.week %>"
+                        role="tab" aria-controls="v-pills-week<%= report.week %>" aria-selected="true">Week <%= report.week %></a>
+                    <% } %>    
+                <% }); %>
+            </div>        
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <% if(user.reports.length != 0){ %>
+                    <% user.reports.forEach(function(report){ %>
+                        <% if(report.week == currentClass.currentWeek-1){ %>
+                            <div class="tab-pane fade show active" id="v-pills-week<%= report.week %>" role="tabpanel" aria-labelledby="v-pills-week<%= report.week %>-tab">
+                        <% }else{ %>
+                            <div class="tab-pane fade" id="v-pills-week<%= report.week %>" role="tabpanel" aria-labelledby="v-pills-week<%= report.week %>-tab">
+                        <% } %>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Your Balance</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Revenues</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Return on investments</td>
+                                            <td></td>
+                                            <td><%= (report.a).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gained from bank by interest</td>
+                                            <td></td>
+                                            <td><%= (report.b).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gained from finished projects</td>
+                                            <td></td>
+                                            <td><%= (report.c).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Gain</td>
+                                            <td></td>
+                                            <td><%= (report.a + report.b + report.c).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Costs</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Paid loans</td>
+                                            <td></td>
+                                            <td><%= (report.z).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maintenance costs of assets</td>
+                                            <td></td>
+                                            <td><%= (report.y).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Costs of investments</td>
+                                            <td></td>
+                                            <td><%= (report.x) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Expense</td>
+                                            <td></td>
+                                            <td><%= (report.z + report.y + report.x).toFixed(0) %></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Change in balance</th>
+                                            <th></th>
+                                            <th><%= (report.a + report.b + report.c - report.z - report.y - report.x).toFixed(0) %></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<%- include("../partials/footer") %>

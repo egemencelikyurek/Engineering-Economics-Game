@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing">
+    <div class="row">
+        <div class="col-3">
+            <h4>Future Payments</h4>
+          <div class="nav flex-column nav-pills spacing" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <% for(var i=currentClass.currentWeek+1; i<currentClass.maxWeek; i++){ %>
+                <% if(i==currentClass.currentWeek+1){ %>
+                    <a class="nav-link active" id="v-pills-week<%= i %>-tab" data-toggle="pill" href="#v-pills-week<%= i %>" role="tab" aria-controls="v-pills-week<%= i %>" aria-selected="true">Week <%= i %></a>
+                <% }else{ %>
+                    <a class="nav-link" id="v-pills-week<%= i %>-tab" data-toggle="pill" href="#v-pills-week<%= i %>" role="tab" aria-controls="v-pills-week<%= i %>" aria-selected="true">Week <%= i %></a>
+                <% } %>
+            <%}%>
+    
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">    
+            <% for(var i=currentClass.currentWeek+1; i<currentClass.maxWeek; i++){ %>
+                <% if(i==currentClass.currentWeek+1){ %>
+                    <div class="tab-pane fade show active" id="v-pills-week<%= i %>" role="tabpanel" aria-labelledby="v-pills-week<%= i %>-tab">
+                <% }else{ %> 
+                    <div class="tab-pane fade" id="v-pills-week<%= i %>" role="tabpanel" aria-labelledby="v-pills-week<%= i %>-tab"> 
+                <% } %>     
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Amount Taken</th>
+                                        <th>Monthly Payment</th>
+                                        <th>Number of Payments Left</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var j=0; j<user.loans.length; j++){ %>
+                                        <% if(user.loans[j].startedWeek + user.loans[j].term >= i){ %>
+                                            <tr>
+                                                <td><%= j + 1 %></td>
+                                                <td><%= user.loans[j].amount %></td>
+                                                <td><%= user.loans[j].weeklyPayment.toFixed(2) %></td>
+                                                <td><%= user.loans[j].startedWeek + user.loans[j].term - i +1 %></td>
+                                            </tr>
+                                        <% } %>
+                                    <% } %>  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            <% } %>   
+          </div>
+        </div>
+      </div>
+    
+    
+</div>
+
+
+<%- include("../partials/footer") %>

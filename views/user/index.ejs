@@ -1,0 +1,219 @@
+<%- include("../partials/header") %>
+
+<div class="container spacing" >
+    <h3 style="text-align: center;">Week <%= currentClass.currentWeek %></h3>
+    <% if(currentClass.currentWeek == 0){ %>
+        <p class="display-4">The game did not start yet. Come back on <%= moment(currentClass.startDate).format("MMMM Do YYYY") %></p>
+    <% }else if(currentClass.currentWeek == 1){ %>
+        <p>This is the first week of the game. You are a production engineer in a company. Your company constructed a new digital 
+            factory and you are transferred there. Firstly, your manager asked you to buy some missing equipments to start the process. 
+            You have to choose the best and most economic alternative by using engineering economics methods. You have to choose one of the 
+            options, otherwise it will be chosen random automatically. It's up to you!
+        </p>
+        <p>
+            You should choose 1 CNC Machine, 1 Conveyor, Sensores , and Server.
+        </p>
+        <br><br>
+            <div class="container">
+                <div>
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item"><a role="tab" data-toggle="pill" class="nav-link active" href="#CNC">CNC Machine</a></li>
+                        <li class="nav-item"><a role="tab" data-toggle="pill" class="nav-link" href="#Conveyor">Conveyor</a></li>
+                        <li class="nav-item"><a role="tab" data-toggle="pill" class="nav-link" href="#Sensor">Sensor System</a></li>
+                        <li class="nav-item"><a role="tab" data-toggle="pill" class="nav-link" href="#Server">Server</a></li>
+                    </ul>
+                    <div class="tab-content" >
+                        <div role="tabpanel" class="tab-pane fade show active" id="CNC"> <br><br>
+                            <div class="row">
+                                <% user.assetPool.forEach(function(asset){ %>
+                                    <% if(asset.projectname == "CNC"){ %>
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+                                            <div>
+                                              <div class="card-body" style="padding: 0;">
+                                                <form class="myForm" action="/add/asset/<%= asset._id %>" method="post">
+                                                    <% if(asset.situation == "secildi"){ %>
+                                                        <button class="aktif" style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else if(asset.situation == "pasif"){ %>
+                                                        <button style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else{ %>
+                                                        <button class="blue" style="text-align: left; padding: 18px;">
+                                                    <% } %>
+                                                        <p>First Cost: <%= asset.initialcost %></p>
+                                                        <p>Weekly Income: <%= asset.weeklygain %></p>
+                                                        <p>Maintenance cost once in each 2 week: <%= asset.maintenancecost %></p>
+                                                        <p>Lifetime: <%= asset.lifetime %></p>
+                                                        <p>Salvage Value: <%= asset.salvage %></p>
+                                                    </button>
+                                                </form>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                <% }); %>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Conveyor"><br><br>
+                            <div class="row">
+
+                                <% user.assetPool.forEach(function(asset){ %>
+                                    <% if(asset.projectname == "Conveyor"){ %>
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+                                            <div>
+                                              <div class="card-body" style="padding: 0;">
+                                                <form class="myForm" action="/add/asset/<%= asset._id %>" method="post">
+                                                    <% if(asset.situation == "secildi"){ %>
+                                                        <button class="aktif" style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else if(asset.situation == "pasif"){ %>
+                                                        <button style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else{ %>
+                                                        <button class="blue" style="text-align: left; padding: 18px;">
+                                                    <% } %>
+                                                        <p>First Cost: <%= asset.initialcost %></p>
+                                                        <p>Weekly Income: <%= asset.weeklygain %></p>
+                                                        <p>Maintenance cost once in each 2 week: <%= asset.maintenancecost %></p>
+                                                        <p>Lifetime: <%= asset.lifetime %></p>
+                                                        <p>Salvage Value: <%= asset.salvage %></p>
+                                                    </button>
+                                                </form>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                <% }); %>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Sensor"><br><br>
+                            <div class="row">
+                                <% user.assetPool.forEach(function(asset){ %>
+                                    <% if(asset.projectname == "Sensor"){ %>
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+                                            <div>
+                                              <div class="card-body" style="padding: 0;">
+                                                <form class="myForm" action="/add/asset/<%= asset._id %>" method="post">
+                                                    <% if(asset.situation == "secildi"){ %>
+                                                        <button class="aktif" style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else if(asset.situation == "pasif"){ %>
+                                                        <button style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else{ %>
+                                                        <button class="blue" style="text-align: left; padding: 18px;">
+                                                    <% } %>
+                                                        <p>First Cost: <%= asset.initialcost %></p>
+                                                        <p>Weekly Income: <%= asset.weeklygain %></p>
+                                                        <p>Maintenance cost once in each 2 week: <%= asset.maintenancecost %></p>
+                                                        <p>Lifetime: <%= asset.lifetime %></p>
+                                                        <p>Salvage Value: <%= asset.salvage %></p>
+                                                </button>
+                                                </form>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                <% }); %>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Server"><br><br>
+                            <div class="row">
+                                <% user.assetPool.forEach(function(asset){ %>
+                                    <% if(asset.projectname == "Server"){ %>
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+                                            <div>
+                                              <div class="card-body" style="padding: 0;">
+                                                <form class="myForm" action="/add/asset/<%= asset._id %>" method="post">
+                                                    <% if(asset.situation == "secildi"){ %>
+                                                        <button class="aktif" style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else if(asset.situation == "pasif"){ %>
+                                                        <button style="text-align: left; padding: 18px;" disabled>
+                                                    <% }else{ %>
+                                                        <button class="blue" style="text-align: left; padding: 18px;">
+                                                    <% } %>
+                                                        <p>First Cost: <%= asset.initialcost %></p>
+                                                        <p>Weekly Income: <%= asset.weeklygain %></p>
+                                                        <p>Maintenance cost once in each 2 week: <%= asset.maintenancecost %></p>
+                                                        <p>Lifetime: <%= asset.lifetime %></p>
+                                                        <p>Salvage Value: <%= asset.salvage %></p>
+                                                    </button>
+                                                </form>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                <% }); %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <% }else{ %>
+        <h4 class="title">Gain Profit From Investments</h4>
+        <% if(user.pool.length == 0){ %>
+            <h4 class="icerik">  There is no left invesment. Come back next week... </h4>
+        <% }else{ %>
+            <div class="row">
+                <% user.pool.forEach(function(deal){ %>
+                    <% if(deal.weeknumber == currentClass.currentWeek){ %>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title"><%= deal.projectname %></h5>
+                                <p>Initial Cost: <%= deal.initialcost %></p>
+                                <p>Weekly Income: <%= deal.weeklyincome %></p>
+                                <p>Weekly Cost: <%= deal.weeklycost %></p>
+                                <p>Salvage Value: <%= deal.salvage %></p>
+                                <p>Lifetime: <%= deal.lifetime %></p>
+                                <form action="/add/project/<%= deal._id %>" method="post">
+                                    <button class="btn btn-primary ">ADD</button>
+                                </form>
+                              </div>
+                            </div>
+                        </div>
+                   <% } %>
+                <% }); %>     
+            </div>
+        <% } %>
+        <h4 class="title">Cost Only Investments</h4>
+        <% if(currentClass.currentWeek >= currentClass.coStart){ %>    
+            <div class="row">
+                <% if(user.costonlypool.length == 0){ %>
+                    <h4 class="icerik">  There is no left invesment. Come back next week... </h4>
+               <% } %>
+                <% user.costonlypool.forEach(function(deal){ %>
+                    <% if(deal.weeknumber == currentClass.currentWeek){ %>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6 cards">
+                            <% if(deal.situation == "secildi"){ %>
+                                <div class="card aktif">
+                            <% }else if(deal.situation == "pasif"){ %>
+                                <div class="card pasif">
+                            <% }else{ %>
+                                <div class="card">
+                            <% } %>       
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= deal.projectname %></h5>
+                                    <p>Initial Cost: <%= deal.initialcost %></p>
+                                    <p>Weekly Cost: <%= deal.weeklycost %></p>
+                                    <p>Maintenance cost once in each 2 week: <%= deal.maintenancecost %></p>
+                                    <p>Useful Life: <%= deal.lifetime %></p>
+                                    <p>Salvage Value: <%= deal.salvage %></p>
+                                    <form action="/add/cproject/<%= deal._id %>" method="post">
+                                        <% if(deal.situation == "secildi" || deal.situation == "pasif"){ %>
+                                            <button disabled class="btn btn-primary ">ADD</button>                                            <% }else{ %>
+                                            <button class="btn btn-primary ">ADD</button>
+                                        <% } %>
+                                    </form>
+                                </div>
+                                </div>
+                        </div>
+                    <% } %>
+                <% }); %>     
+            </div>
+        <% }else{ %>
+            <h4 class="icerik">Coming soon...</h4>
+        <% } %>
+        <h4 class="title">Replacement Analysis</h4>
+        <% if(currentClass.currentWeek >= currentClass.raStart){ %>
+            <p>buraya bişiler gelecek</p>
+        <% }else{ %>
+            <h4 class="icerik">Coming soon...</h4>
+        <% } %>
+    <% } %>
+</div>
+<%- include("../partials/footer") %>

@@ -1,0 +1,18 @@
+<%- include("../partials/header") %>
+
+    <div class="register-photo"> 
+        <div class="form-container" style="width: 524px;">
+            <form method="POST" action="/register">
+                <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                <div class="form-group"><input class="form-control" type="text" name="username" placeholder="ITU - Mail" required></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" required></div>
+                <div class="form-group"><input class="form-control" type="password" name="passwordRepeat" placeholder="Password (repeat) " required></div>
+                <div class="form-group"><input class="form-control" type="number" name="classID" placeholder="Class ID" required></div>
+                <div class="form-group"><input class="form-control" type="number" name="schoolID" placeholder="School ID" required></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="width: 121px;background-color: #0038a8;margin-right: auto;margin-left: auto;">Sign Up</button></div>
+                <a class="already" href="/login">You already have an account? Login here.</a>
+                <a style="margin-top: 4px;" class="already" href="/register_admin">Are you an instructor? Sign up here.</a>
+            </form>
+        </div>
+    </div>
+<%- include("../partials/footer") %>
