@@ -69,3 +69,7 @@ input[type="date"]::-webkit-inner-spin-button{
   right: 0px;
   padding: 0px;
 }
+.info{
+  text-align: justify; 
+  margin-bottom: 6px;
+}

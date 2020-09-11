@@ -95,13 +95,6 @@ setInterval(function () {
                 if (foundClass.currentWeek == 1 && foundClass.users.length != 0 && foundClass.assetPool.length == 0) {
                     generateAssets(foundClass._id);
                 }
-                /*
-                if (foundClass.currentWeek >= 2 && foundClass.users.length != 0 && foundClass.pool.length == 0  && foundClass.currentWeek <= foundClass.maxWeek){
-                    generateDeals(foundClass._id);
-                }
-                if (foundClass.currentWeek >= foundClass.coStart && foundClass.users.length != 0 && foundClass.cpool.length == 0  && foundClass.currentWeek <= foundClass.maxWeek){
-                    generatecDeals(foundClass._id);
-                } */
                 User.find({ classID: foundClass.idNumber, usertype: "Student" }, function (err, users) {
                     if (err) {
                         console.log(err);
